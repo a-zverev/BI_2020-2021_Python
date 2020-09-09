@@ -1,11 +1,13 @@
-# Python calculator (*/+- -only)
+import operator
+# Python calculator (*/+-** -only)
 
-a, operand, b = (input().rstrip() for i in range(0,3))
-#Check our data
-if operand not in ('*', '/', '+', '-'):
-    print("Error: {} is wrong operand".format(operand))
+
+a, action, b = (input().rstrip() for i in range(0, 3))
+# Check our data
+if action not in ('**', '/', '+', '-', '*'):
+    print("Error: {} is wrong operator".format(action))
     exit()
-elif operand == '/' and b == '0':
+elif action == '/' and b == '0':
     print("Error: you can`t divide by zero")
     exit()
 
@@ -16,11 +18,17 @@ except ValueError:
     print("Error: data can`t be converted to int. Check them")
     exit()
 
-#Calculate
-#(Sure, I google more fancy version instead four "if"
-# This one was taken from first request "python variable as operand" -
-# https://stackoverflow.com/questions/2983139/assign-operator-to-variable-in-python)
+# Calculate
+# Still hate idea of five if, so another googled solution
+# https://stackoverflow.com/questions/54559395/how-to-store-and-use-mathematical-operators-as-python-variable?noredirect=1&lq=1
 
-result = eval(str(a)+operand+str(b))
-print(result)
-
+operatorLookup = {
+    '+': operator.add,
+    '-': operator.sub,
+    '*': operator.mul,
+    '/': operator.truediv,
+    '**': operator.pow
+}
+actionAsFunction = operatorLookup.get(action)
+res = actionAsFunction(a, b)
+print(res)
