@@ -12,10 +12,10 @@ elif action == '/' and b == '0':
     exit()
 
 try:
-    a = int(a)
-    b = int(b)
+    a = float(a)
+    b = float(b)
 except ValueError:
-    print("Error: data can`t be converted to int. Check them")
+    print("Error: data can`t be converted to float. Check them")
     exit()
 
 # Calculate
