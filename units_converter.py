@@ -4,7 +4,7 @@ oz (ounces), it (imperial tons), iq (imperial qintals)")
 print("Enter request in format <data> <metric_from> to <metric to>")
 line = input()
 
-# coerce all units to metric gram
+# coerce all units to metric gram (british (long) ton and quintal)
 conversion = {
     "mg": 0.01,
     "g": 1,
@@ -13,6 +13,8 @@ conversion = {
     "st": 6350.29318,  # stone
     "lb": 453.59237,  # pound
     "oz": 28.349523125,  # ounce
+    "it": 1016046.9088,  # imperial ton
+    "iq": 50802.34544  # imperial quintal
 }
 
 try:
