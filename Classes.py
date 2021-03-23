@@ -10,11 +10,13 @@ class NucleicAcid():
         if self.type == "DNA":
             if not all(base.upper() in ('A', 'C', 'T', 'G')
                        for base in self.seq):
-                raise ValueError(f'{self.seq} is wrong sequence.                 Must be from agct correct letters only')
+                raise ValueError(f'{self.seq} is wrong sequence. \
+                Must be from agct correct letters only')
         else:
             if not all(base.upper() in ('A', 'C', 'U', 'G')
                        for base in self.seq):
-                raise ValueError(f'{self.seq} is wrong sequence.                 Must be from agcu correct letters only')
+                raise ValueError(f'{self.seq} is wrong sequence. \
+                Must be from agcu correct letters only')
 
     def __iter__(self):
         self.i = 0
@@ -33,7 +35,8 @@ class NucleicAcid():
         return True if self.seq == other.seq else False
 
     def gc_content(self):
-        return sum(1 for letter in self.seq if letter in ['G', 'C']) /                len(self.seq)
+        return sum(1 for letter in self.seq if letter in ['G', 'C']) /\
+        len(self.seq)
 
     def reverse_compliment(self):
         if self.type == "DNA":
